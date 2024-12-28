@@ -13,3 +13,23 @@ nav a{
     padding: 14px 16px;
     text-decoration: none;
 }
+nav a:hover{
+    background-color:red ;
+color: black;
+}
+.book-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-gap:20px
+}
+.book-grid{
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.error{
+    color: rebeccapurple;
+    font-weight: bold;
+    margin-top: 10px;
+}
