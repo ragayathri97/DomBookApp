@@ -1,4 +1,4 @@
-const baseUrl='https://dent-clover-bottom.glitch.me/';
+const baseUrl='https://hip-lying-mongoose.glitch.me';
 
 async function fetchData(url){
     try{
