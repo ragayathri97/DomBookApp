@@ -4,8 +4,7 @@ const passwordInput=document.getElementById('password');
 const errorMessage=document.getElementById('errorMessage');
 
 
-//Handle-Submission
-loginForm.addEventListener('submit',(event)=>{
+//Handle-Submission loginForm.addEventListener('submit',(event)=>{
     event.preventDefault();
     const email=emailInput.value;
     const password=passwordInput.value;
