@@ -110,6 +110,6 @@ async function returnBook(bookId){
         }
     }
             }
-    showAvailableButton.addEventListener('click',showAvaliableBooks);
+    showAvailableButton.addEventListener('click',showAvailableBooks);
     showBorrowedButton.addEventListener('click',showBorrowedBooks);
-    showAvaailableBooks();
+    showAvailableBooks();
