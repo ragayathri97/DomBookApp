@@ -56,4 +56,60 @@ bookGrid.appendChild(bookCard);
 }
 
 //borrow
-async
+async function borrowBook(bookId){
+    const borrowingDays=prompt("Enter borrowingDays (max 10 days):","");
+    if(borrowingDays && !isNaN(borrowingDays) && borrowingDays <=10){
+        try{
+            const response=await fetchData(`${baseUrl}/${bookId}`,{
+                method:'PATCH',
+                headers:
+                {'content-Type':'application/json'},
+                body:JSON.stringify({
+                    isAvailable:false,
+                    borrowedDays:
+                    parseInt(borrowingDays)
+                })
+            });
+            if(response.ok){
+                alert("Book Borrowed Sucessfully!");
+                showAvailableBooks();
+            }
+        }
+    catch(error){
+        displayError('Failed to borrow book.');
+    }
+}
+else{
+    alert("Invalid input for borrowing days.")
+}
+}
+
+
+//return
+async function returnBook(bookId){
+    if(window.confirm('Are you sure to return the book?')){
+        try{
+            const response=await fetchData(`${baseUrl}/${bookId}`,{
+                method:'PATCH',
+                headers:
+                {
+                    'content-Type':'application/json'
+                },
+                body:JSON.stringify({
+                    isAvailable:true,
+                    borrowedDays:null
+                    })
+            });
+             if(response.ok){
+                alert("Book Returned Sucessfully!");
+                showAvailableBooks();
+            }
+        }
+    catch(error){
+        displayError('Failed to return book.');
+        }
+    }
+            }
+    showAvailableButton.addEventListener('click',showAvaliableBooks);
+    showBorrowedButton.addEventListener('click',showBorrowedBooks);
+    showAvaailableBooks();
