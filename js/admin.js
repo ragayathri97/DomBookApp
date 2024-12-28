@@ -19,5 +19,26 @@ const newBook={
 };
 
 try{
-    const response=await fetchData(`${baseUrl}`,)
+    const response=await fetchData(`${baseUrl}`,{
+        method:'POST',
+        headers:{
+            'content-Type':'appication/json'
+        },
+        body:JSON.stringify(newBook)
+    });
+     
+    if(response.ok){
+        alert ("Book added sucessfully!")
+        titleInput.value='';
+        authorInput.value='';
+        categorySelect.value='fiction';
+    }
 }
+catch(error){
+    displayError('Failed to add book.');
+}
+// }
+addBookForm.addEventListener('submit',(event)=>{
+    event.preventDefault();
+    addBook();
+});
