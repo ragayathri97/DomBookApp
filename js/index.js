@@ -1,5 +1,6 @@
 const loginForm=document.getElementById('loginForm');
 const emailInput=document.getElementById('email');
+const passwordInput=document.getElementById('password');
 const errorMessage=document.getElementById('errorMessage');
 
 
@@ -16,11 +17,13 @@ if(email==='admin@empher.com'&& password==='empher@123'){
     }));
     window.location.href='admin.html';
     alert ("Logged in as Admin.")
+    return;
 }
-else if(email==='user@empher.com'&& password==='empher@123'){
+if(email==='user@empher.com'&& password==='user@123'){
     localStorage.setItem('loginData',JSON.stringify({
         email:'user@empher.com'}));
         window.location.href='books.html';
+        return;
         errorMessage.textContent="Invalid email or password."
     }
-})
+});
